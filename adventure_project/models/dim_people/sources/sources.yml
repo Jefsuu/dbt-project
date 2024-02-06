@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: person
+    description: A reference to all tables about people
+    tables:
+      - name: person
+        description: person infos
