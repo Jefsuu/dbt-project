@@ -1,4 +1,4 @@
-{% set start_date = '2000-01-01' %}
-{% set end_date = '2023-12-31' %}
-
-{{ dbt_date.get_date_dimension(start_date, end_date) }}
+select 
+    to_char(dim_time.date_day, 'YYYYMMdd') id,
+    dim_time.*
+from {{ ref("stg_dim_time") }} dim_time

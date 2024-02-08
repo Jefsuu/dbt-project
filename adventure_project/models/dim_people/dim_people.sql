@@ -17,5 +17,3 @@ left join {{ ref("stg_person_email") }} email on
     person.businessentityid = email.businessentityid
 left join {{ ref("stg_person_address") }} address on
     person.businessentityid = address.businessentityid
-
-limit 100
