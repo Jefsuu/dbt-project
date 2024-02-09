@@ -1,6 +1,7 @@
 select 
     person.businessentityid id,
     person.persontype type,
+    upper(trim(type.description)),
     concat(person.firstname, ' ', person.lastname) name,
     phone.phonenumber,
     email.emailaddress email,
@@ -17,3 +18,5 @@ left join {{ ref("stg_person_email") }} email on
     person.businessentityid = email.businessentityid
 left join {{ ref("stg_person_address") }} address on
     person.businessentityid = address.businessentityid
+left join {{ ref("type_of_person") }} type on
+    upper(trim(person.persontype)) = upper(trim(type.persontype))

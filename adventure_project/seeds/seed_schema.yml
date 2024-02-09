@@ -1,0 +1,4 @@
+seeds:
+  - name: type_of_person
+    config: 
+      delimiter: ";"

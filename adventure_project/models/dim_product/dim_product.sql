@@ -13,7 +13,7 @@ cte_product AS (
 )
 
 select
-    productid id,
+    product.productid id,
     product.productnumber product_number,
     product.name product_name,
     category.productcategoryid category_id,
@@ -21,7 +21,8 @@ select
     subcategory.productsubcategoryid subcategory_id,
     subcategory.name subcategory,
     unitmeasure.unitmeasurecode unit_measure_code,
-    unitmeasure.name unitmeasure,
+    unitmeasure.name unit_measure,
+    product.standardcost standard_cost,
     product.modifieddate last_update
 from cte_product product
 left join cte_subcategory subcategory on
@@ -30,5 +31,3 @@ left join cte_category category on
     subcategory.productsubcategoryid = category.productcategoryid 
 left join cte_unitmeasure unitmeasure on
     product.weightunitmeasurecode = unitmeasure.unitmeasurecode
-
-{# select * from cte_description #}
