@@ -1,3 +1,8 @@
+{{
+  config(
+    materialized = 'ephemeral',
+    )
+}}
 {% set start_date = '2000-01-01' %}
 {% set end_date = '2023-12-31' %}
 
