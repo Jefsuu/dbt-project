@@ -1,8 +1,8 @@
-{{
+{# {{
   config(
-    materialized = 'ephemeral',
+    schema = 'stg_analytics',
     )
-}}
+}} #}
 with address as (
       select * from {{ source('person', 'person_adress') }}
 )

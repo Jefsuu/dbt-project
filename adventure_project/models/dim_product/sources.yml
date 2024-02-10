@@ -3,7 +3,10 @@ version: 2
 sources:
   - name: product
     description: A reference to all tables about products
-    database: adventureworks
+    database: |
+      {%- if  target.name == "dev" -%} adventureworks
+      {%- elif target.name == "prod"  -%} adventureworks_prod
+      {%- endif -%}
     schema: production
     tables:
       - name: product

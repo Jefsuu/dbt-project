@@ -3,7 +3,10 @@ version: 2
 sources:
   - name: person
     description: A reference to all tables about people
-    database: adventureworks
+    database: |
+      {%- if  target.name == "dev" -%} adventureworks
+      {%- elif target.name == "prod"  -%} adventureworks_prod
+      {%- endif -%}
     schema: person
     tables:
       - name: person

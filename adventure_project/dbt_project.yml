@@ -34,4 +34,23 @@ models:
   adventure_project:
     # Config indicated by + and applies to all files under models/example/
     dim_people:
-      +materialized: view
+      sources:
+        +materialized: view
+        +schema: stg_analytics
+      +materialized: table
+      
+    dim_time:
+      +materialized: table
+    
+    dim_product:
+      +materialized: table
+    
+    fact_sales:
+      +materialized: table
+
+seeds:
+  adventure_project:
+    schema: lookup_analytics
+    materialized: seed
+
+

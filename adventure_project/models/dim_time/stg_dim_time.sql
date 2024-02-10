@@ -1,6 +1,7 @@
 {{
   config(
-    materialized = 'ephemeral',
+    materialized = 'table',
+    schema = 'stg_analytics'
     )
 }}
 {% set start_date = '2000-01-01' %}
