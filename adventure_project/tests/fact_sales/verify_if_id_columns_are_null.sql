@@ -1,3 +1,4 @@
+-- verify if id columns in fact_sales are null, the objetive of this test is only warn
 {{
   config(
     error_if=">100000",

@@ -1,0 +1,88 @@
+version: 2
+models:
+  - name: dim_people
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+        data_type: integer
+        description: The unique identifier for each person. This is derived from the
+          'businessentityid' column in the 'stg_person' table.
+      - name: type
+        tests:
+          - accepted_values:
+              values:
+                - EM
+                - GC
+                - IN
+                - SC
+                - SP
+                - VC
+        data_type: character
+        description: The type of person. This is derived from the 'persontype' column in
+          the 'stg_person' table.
+      - name: upper
+        description: The upper case version of the person type. This is derived from the
+          'description' column in the 'type_of_person' table after trimming and
+          converting to upper case.
+        data_type: text
+      - name: name
+        description: The 'name' column is a concatenation of the 'firstname' and
+          'lastname' columns from the 'stg_person' table. It represents the full
+          name of the person. The column is of text data type.
+        data_type: text
+      - name: phone_number
+        description: The 'phone_number' column is sourced from the 'phonenumber' column
+          of the 'stg_person_phone' table. It represents the phone number of the
+          person. The column is of character varying data type.
+        data_type: character varying
+      - name: email
+        description: The 'email' column is sourced from the 'emailaddress' column of the
+          'stg_person_email' table. It represents the email address of the
+          person. The column is of character varying data type.
+        data_type: character varying
+      - name: address_id
+        description: The unique identifier for each address. This is a foreign key that
+          links to the address table.
+        data_type: integer
+      - name: adress
+        description: The first line of the person's address. This can include street
+          name, number, and other relevant details.
+        data_type: character varying
+      - name: city
+        description: The city where the person resides. This is part of the address details.
+        data_type: character varying
+      - name: state_province_id
+        description: The unique identifier for the state or province where the person
+          resides. This is an integer value that is linked to the
+          'state_province' table in the database.
+        data_type: integer
+      - name: postal_code
+        description: The postal code for the person's address. This is a character
+          varying field that contains alphanumeric values.
+        data_type: character varying
+      - name: last_update
+        description: The timestamp of the last update made to the person's record. This
+          is a timestamp without time zone field that records the date and time
+          of the last update in the format 'YYYY-MM-DD HH:MI:SS'.
+        data_type: timestamp without time zone
+    description: "The 'dim_people' model is a dimensional model that contains
+      information about people. It includes the following columns: 'id', 'type',
+      'upper', 'name', 'phone_number', 'email', 'address_id', 'adress', 'city',
+      'state_province_id', 'postal_code', and 'last_update'. The 'id' column is
+      an integer that represents the unique identifier of a person. The 'type'
+      column is a character that represents the type of person. The 'upper'
+      column is a text that represents the upper case of the type description.
+      The 'name' column is a text that represents the full name of a person. The
+      'phone_number' column is a character varying that represents the phone
+      number of a person. The 'email' column is a character varying that
+      represents the email address of a person. The 'address_id' column is an
+      integer that represents the unique identifier of an address. The 'adress'
+      column is a character varying that represents the address line of a
+      person. The 'city' column is a character varying that represents the city
+      of a person. The 'state_province_id' column is an integer that represents
+      the unique identifier of a state or province. The 'postal_code' column is
+      a character varying that represents the postal code of a person. The
+      'last_update' column is a timestamp without time zone that represents the
+      last time the information was updated."

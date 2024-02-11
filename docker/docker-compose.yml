@@ -8,11 +8,11 @@ services:
       target: postgresql
       dockerfile: Dockerfile
     volumes:
-      - 'volumes/postgresql_data:/bitnami/postgresql/data/'
+      - './volumes/postgresql_data:/bitnami/postgresql/data/'
     ports:
       - '5432:5432'
     environment:
-      {# - POSTGRESQL_DATABASE=dev_db #}
+      #- POSTGRESQL_DATABASE=dev_db
       - POSTGRESQL_USERNAME=dev_user
       - POSTGRESQL_PASSWORD=1234
       - POSTGRESQL_POSTGRES_PASSWORD=1234
@@ -29,7 +29,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - "volumes/metabase_data:/metabase_data"
+      - "./volumes/metabase_data:/metabase_data"
     environment:
     # Configs below is recommended only for development.
     - MB_ENABLE_PASSWORD_LOGIN=false

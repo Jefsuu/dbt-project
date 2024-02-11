@@ -1,4 +1,4 @@
-# first create prod_user
+# first create prod_user, dev_user are already created
 psql -h postgresql -U postgres -c "create user prod_user with password '1234' createdb;"
 
 # then create prod and dev databse with respectives users
@@ -6,7 +6,7 @@ psql -h postgresql -U prod_user -d postgres -c "create database \"adventureworks
 psql -h postgresql -U dev_user -d postgres -c "create database \"adventureworks_dev\";"
 
 
-# when finished move to folder where script and data are
+# when finished move to folder where script and data are, inside the container
 cd /bitnami/postgresql/downloads/AdventureWorks
 
 #then execute the script to populate databases
