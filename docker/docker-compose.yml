@@ -29,7 +29,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - "./volumes/metabase_data:/metabase_data"
+      - "./volumes/metabase.db:/metabase.db"
     environment:
     # Configs below is recommended only for development.
     - MB_ENABLE_PASSWORD_LOGIN=false
@@ -38,7 +38,5 @@ services:
 
 volumes:
   postgresql_data:
-    driver: local
-  metabase_data:
     driver: local
   
