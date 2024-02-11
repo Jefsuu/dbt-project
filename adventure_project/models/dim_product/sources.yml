@@ -4,7 +4,7 @@ sources:
   - name: product
     description: A reference to all tables about products
     database: |
-      {%- if  target.name == "dev" -%} adventureworks
+      {%- if  target.name == "dev" -%} adventureworks_dev
       {%- elif target.name == "prod"  -%} adventureworks_prod
       {%- endif -%}
     schema: production

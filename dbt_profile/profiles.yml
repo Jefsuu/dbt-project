@@ -1,0 +1,21 @@
+adventure_project:
+  outputs:
+    dev:
+      dbname: adventureworks_dev
+      host: localhost
+      pass: '1234'
+      port: 5432
+      schema: analytics
+      threads: 4
+      type: postgres
+      user: dev_user
+    prod:
+      dbname: adventureworks_prod
+      host: localhost
+      pass: '1234'
+      port: 5432
+      schema: analytics
+      threads: 4
+      type: postgres
+      user: prod_user
+  target: dev
