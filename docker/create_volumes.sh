@@ -1,5 +1,4 @@
 declare -a StringArray=("postgresql_data"
-                        "metabase_data"
                         
 )
 
