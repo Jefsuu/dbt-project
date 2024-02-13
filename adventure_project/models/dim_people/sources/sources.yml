@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: person
+    description: A reference to all tables about people
+    database: |
+      {%- if  target.name == "dev" -%} adventureworks_dev
+      {%- elif target.name == "prod"  -%} adventureworks_prod
+      {%- endif -%}
+    schema: person
+    tables:
+      - name: person
+        identifier: person
+        description: person infos
+
+      - name: email
+        identifier: emailaddress
+        description: person email's
+      
+      - name: phone
+        identifier: personphone
+        description: person phone's
+
+      - name: person_adress
+        identifier: address
+        description: person address'
+      
+      - name: address
+        identifier: businessentityaddress
+      
+      

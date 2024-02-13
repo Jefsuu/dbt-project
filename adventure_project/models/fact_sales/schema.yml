@@ -1,0 +1,112 @@
+models:
+  - name: fact_sales
+    description: The fact_sales model is a comprehensive representation of sales
+      data. It includes details about sales orders, purchase orders, account
+      numbers, customer IDs, salesperson IDs, territory IDs, ship method IDs,
+      currency rate IDs, product IDs, quantities, unit prices, subtotals,
+      freight costs, estimated costs, revenues, estimated profits, order dates,
+      due dates, ship dates, last update dates, and date IDs. The model is
+      created using a common table expression (CTE) to first isolate product
+      costs, and then joining this with sales order headers, sales order
+      details, and ship methods. The model is designed to provide a detailed
+      view of sales-related data for further analysis and reporting.
+    columns:
+      - name: sales_order_id
+        description: The unique identifier for each sales order. This is an integer value.
+        data_type: integer
+      - name: purchase_order_number
+        description: The purchase order number associated with the sales order. This is
+          a character varying field.
+        data_type: character varying
+      - name: account_number
+        description: The account number associated with the customer who made the sales
+          order. This is a character varying field.
+        data_type: character varying
+      - name: customer_id
+        description: The unique identifier for each customer. This is an integer value
+          that is automatically assigned when a new customer is created in the
+          system.
+        data_type: integer
+      - name: sales_person_id
+        description: The unique identifier for each sales person. This is an integer
+          value that is automatically assigned when a new sales person is added
+          to the system.
+        data_type: integer
+      - name: territory_id
+        description: The unique identifier for each sales territory. This is an integer
+          value that is automatically assigned when a new territory is created
+          in the system.
+        data_type: integer
+      - name: ship_method_id
+        description: An integer identifier for the shipping method used for the sales
+          order. This ID corresponds to a specific shipping method in the
+          'purchasing.shipmethod' table.
+        data_type: integer
+      - name: currency_rate_id
+        description: An integer identifier for the currency rate applicable to the sales
+          order. This ID corresponds to a specific currency rate in the
+          'sales.currencyrate' table.
+        data_type: integer
+      - name: product_id
+        description: An integer identifier for the product sold in the sales order. This
+          ID corresponds to a specific product in the 'production.product'
+          table.
+        data_type: integer
+      - name: quantity
+        description: The 'quantity' column represents the number of units of a
+          particular product that were included in a sales order. It is of type
+          'smallint', meaning it can hold small integer values.
+        data_type: smallint
+      - name: unit_price
+        description: The 'unit_price' column represents the price of a single unit of a
+          product in a sales order. It is of type 'numeric', meaning it can hold
+          numeric values with a high level of precision.
+        data_type: numeric
+      - name: subtotal
+        description: The 'subtotal' column represents the total cost of all units of a
+          product in a sales order before any additional charges such as
+          shipping or taxes. It is calculated by multiplying the 'quantity'
+          column by the 'unit_price' column. It is of type 'numeric', meaning it
+          can hold numeric values with a high level of precision.
+        data_type: numeric
+      - name: freight
+        description: The freight column represents the shipping cost for the order. It
+          is calculated as the sum of the base shipping cost and a percentage of
+          the order subtotal, which is determined by the ship rate.
+        data_type: numeric
+      - name: estimated_cost
+        description: The estimated_cost column represents the estimated cost of the
+          products in the order. It is calculated by multiplying the standard
+          cost of each product by the quantity ordered.
+        data_type: numeric
+      - name: revenue
+        description: The revenue column represents the total revenue generated from the
+          order. It is calculated as the sum of the order subtotal and the
+          freight cost.
+        data_type: numeric
+      - name: estimated_profit
+        description: The estimated profit is calculated as the difference between the
+          revenue and the estimated cost. The revenue is the sum of the subtotal
+          and the freight, and the estimated cost is the product of the standard
+          cost and the quantity.
+        data_type: numeric
+      - name: order_date
+        description: The order date is the date when the sales order was placed. It is
+          stored as a timestamp without a time zone.
+        data_type: timestamp without time zone
+      - name: due_date
+        description: The due date is the date by which the sales order should be
+          fulfilled. It is stored as a timestamp without a time zone.
+        data_type: timestamp without time zone
+      - name: ship_date
+        description: The date when the product was shipped to the customer. It is
+          represented as a timestamp without time zone.
+        data_type: timestamp without time zone
+      - name: last_update
+        description: The date and time when the sales order record was last updated. It
+          is represented as a timestamp without time zone.
+        data_type: timestamp without time zone
+      - name: date_id
+        description: A unique identifier for each date, created by converting the order
+          date to the format 'YYYYMMdd' and casting it as an integer.
+        data_type: integer

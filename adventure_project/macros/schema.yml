@@ -1,0 +1,11 @@
+version: 2
+
+macros:
+  - name: generate_schema_name
+    description: A macro to change how dbt create schema names
+    arguments:
+      - name: custom_schema_name
+        type: string
+        description: The name of the schema configured for the model
+      - name: node
+        type: string

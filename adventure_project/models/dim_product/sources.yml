@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: product
+    description: A reference to all tables about products
+    database: |
+      {%- if  target.name == "dev" -%} adventureworks_dev
+      {%- elif target.name == "prod"  -%} adventureworks_prod
+      {%- endif -%}
+    schema: production
+    tables:
+      - name: product
+        identifier: product
+        description: A table with product info
+      
+      - name: category
+        identifier: productcategory
+        description: product category
+      
+      - name: subcategory
+        identifier: productsubcategory
+        description: product sub category
+
+      - name: unitmeasure
+        identifier: unitmeasure
+        description: unit measure of product
+
+      
