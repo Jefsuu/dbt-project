@@ -1,7 +1,7 @@
 version: 2
 
 macros:
-  - name: generate_schema_name.sql
+  - name: generate_schema_name
     description: A macro to change how dbt create schema names
     arguments:
       - name: custom_schema_name
