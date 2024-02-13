@@ -1,6 +1,6 @@
 ## A study dbt project
 
-To reproduct the creation of this eviroment follow this step-by-step:
+To reproduct the creation of this eviroment you'll need to have docker/docker compose, python and `dbt-postgres` installed to follow this step-by-step:
 
 Inside docker folder run `creates_volumes.sh` to create the volume folders an set the needed permissions
 > bash create_volumes.sh
